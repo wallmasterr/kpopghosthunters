@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-pop Ghosthunters | Official Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a4d3e 0%, #2d5a5f 50%, #1e3a4f 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 0 20px 10px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 0;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .album-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0 60px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .album-cover {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+
+        .album-cover img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 60px 0;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                max-width: 90%;
+            }
+
+            .album-cover {
+                max-width: 100%;
+            }
+        }
+
+        .band-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .band-info h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .band-info p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .music-player {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .music-player h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .track-title {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #ffd700;
+        }
+
+        audio {
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .controls-custom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .play-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+            border: none;
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .play-btn:active {
+            transform: translateY(0);
+        }
+
+        .spotify-link {
+            display: inline-block;
+            margin-top: 30px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .spotify-link:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .spotify-link img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            opacity: 0.8;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+            background-size: cover;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wave"></div>
+    <div class="container">
+        <header>
+            <img src="images/kpopghosthuntersLogo.png" alt="K-pop Ghosthunters" class="logo">
+        </header>
+
+        <div class="album-section">
+            <div class="album-cover">
+                <img src="images/75b25f72-e8d2-4a14-a1dd-b56241f70c5e.png" alt="K-pop Ghosthunters Album Cover">
+            </div>
+            <div class="music-player">
+                <h2>Listen Now</h2>
+                <div class="track-title">"Shadows on the Ceiling, Hear the Whisper"</div>
+                <audio id="audioPlayer" controls preload="metadata">
+                    <source src="images/Shadows on the ceiling, hear the whisper.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="controls-custom">
+                    <button class="play-btn" id="playPauseBtn">Play</button>
+                </div>
+                <a href="#" class="spotify-link" target="_blank" rel="noopener noreferrer">
+                    <img src="images/listen-on-spotify-3.png" alt="Listen on Spotify">
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="band-info">
+                <h2>About Us</h2>
+                <p>Welcome to the official website of <strong>K-pop Ghosthunters</strong>, where spooky meets spectacular! We're a unique K-pop group that combines haunting melodies with electrifying performances.</p>
+                <p>Our music takes you on a supernatural journey through the world of K-pop, blending catchy hooks with mysterious vibes that will keep you coming back for more.</p>
+                <p>Join us as we hunt for ghosts and create music that transcends the ordinary!</p>
+            </div>
+            <div class="band-info">
+                <h2>Latest Release</h2>
+                <p>Experience the haunting sounds of our latest single, "Shadows on the Ceiling, Hear the Whisper". This track combines ethereal vocals with captivating beats that will transport you to another dimension.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 K-pop Ghosthunters. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+
+        playPauseBtn.addEventListener('click', function() {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playPauseBtn.textContent = 'Pause';
+            } else {
+                audioPlayer.pause();
+                playPauseBtn.textContent = 'Play';
+            }
+        });
+
+        audioPlayer.addEventListener('play', function() {
+            playPauseBtn.textContent = 'Pause';
+        });
+
+        audioPlayer.addEventListener('pause', function() {
+            playPauseBtn.textContent = 'Play';
+        });
+
+        audioPlayer.addEventListener('ended', function() {
+            playPauseBtn.textContent = 'Play';
+        });
+    </script>
+</body>
+</html>
+
